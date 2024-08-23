@@ -1,6 +1,10 @@
-import random as rd
-"goal"#create a list in python of 25 random numbers ranging between [0,5]
-"ingriedients"#a list, loop, append
-"translation"
-list_random = [rd.random()*5 for x in range(25)]
-print(list_random)
+
+"goal"#create a function in python which takes in two numbers a and b
+#and returns a dictionary with two properties,
+#one being the sum of a and b and the other being the product of a and b
+"ingriedients"#a function, arguments a and b, return, dictionary, properties
+"translation"#
+def math_ab(a,b):
+    return  {"sum": a+b, "product":a*b}
+    
+print(math_ab(20,50))

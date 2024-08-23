@@ -21,8 +21,8 @@ class Tower:
     def __init__(self,options = {"health": 50,"damage": 15,"attack_cooldown": 1,"x": 0,"y": 0,"width": 100,"height": 100,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": 0.2,}):
         self.health = options["health"]
         self.damage= options["damage"]
-        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
-
+        self.sprite = pg.image.load("assets/Towers/dartMonkey.webp").convert()
+        self.sprite.set_colorkey("white")
         
         
         self.x = options["x"]
@@ -68,7 +68,7 @@ class Tower:
 
     def damage_recieved(self,damage_intake):
         self.health = self.health-damage_intake
-    
+    #tower will automatically shoot with a delay:
 
     def show_sprite(self):
         
@@ -79,7 +79,31 @@ class Tower:
     def attack(self):
         Projectiles(self.x,self.y,50,20,self.damage,25,0,"dart",{})
 
-        
             
                 
+
+
+
+    def shot(self):
+        #self.projectile_list.append(Projectiles({"x":rect_x,"y":rect_y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":pg.image.load("assets/Enemies/redballoon.jpeg").convert(),"effects":"none"}))
+        print("shoo0tin")
+
+
+    def shoot_trigger(self,frameNume):
+        
+        if (frameNume % self.attack_cooldown ==0):
+              print(frameNume)
+              self.shot()
+              
+
+    
+    def handle_projectile(self):
+        for proj in self.projectile_list:
+            proj.move(5,0)
+
+
+
+
+
+
 
