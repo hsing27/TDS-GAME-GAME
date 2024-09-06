@@ -89,7 +89,7 @@ while True:
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             
             #make a function which places athe selceted tower if the player has aenough money
-            tower_list.append(Wall_monkey({"health": 50,"damage": 15,"attack_cooldown": 1,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
+            tower_list.append(Wall_monkey({"health": 50,"damage": 15,"attack_cooldown": 5,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
 
          #   while True:
                
@@ -103,6 +103,6 @@ while True:
 
 
     
-    clock.tick(60)
+    clock.tick(30)
     pg.display.update()
    

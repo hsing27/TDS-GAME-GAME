@@ -50,6 +50,7 @@ class Tower:
         
         self.projectile_list = []
         
+        self.projectile_sprite = pg.image.load("assets/Enemies/redballoon.jpeg").convert()
 
     
     def get_rect(self):
@@ -73,7 +74,7 @@ class Tower:
     def show_sprite(self):
         
         screen.blit(self.scaled_sprite,(self.x,self.y),pg.Rect(0,0,self.width,self.height))
-        
+        self.handle_projectile()
         "translation"
     
     def attack(self):
@@ -85,14 +86,14 @@ class Tower:
 
 
     def shot(self):
-        #self.projectile_list.append(Projectiles({"x":rect_x,"y":rect_y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":pg.image.load("assets/Enemies/redballoon.jpeg").convert(),"effects":"none"}))
-        print("shoo0tin")
+        self.projectile_list.append(Projectiles({"x":self.x,"y":self.y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":self.projectile_sprite,"effects":"none"}))
+  
 
 
     def shoot_trigger(self,frameNume):
         
         if (frameNume % self.attack_cooldown ==0):
-              print(frameNume)
+
               self.shot()
               
 
@@ -100,6 +101,7 @@ class Tower:
     def handle_projectile(self):
         for proj in self.projectile_list:
             proj.move(5,0)
+            proj.show_sprite()
 
 
 
